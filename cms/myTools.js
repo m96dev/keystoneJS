@@ -1,6 +1,6 @@
 
 exports.nowDateTime = function nowDateTime (arg) {
-  let formatDate = (arg) || 'YYYY-MMDD-HHmm';
+  let formatDate = (arg) || 'YYYY-MMDD-HHmm'
   const moment = require('moment')
   const jst = +9
   let now = moment().utcOffset(jst).format(formatDate)
