@@ -1,3 +1,13 @@
 {
-    "extends": "keystone"
+	"extends": [
+		"standard",
+		"keystone"
+	],
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-multi-spaces": 0,
+    "yoda": 0
+  }
 }
