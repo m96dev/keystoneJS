@@ -63,4 +63,15 @@ if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
   '\nset up your mailgun integration')
 }
 
+const tool = require('./myTools')
+console.log(tool.nowDateTime())
+var yearDateTime = tool.nowDateTime()
+console.log('yearDateTime:' + yearDateTime)
+var ipArray = tool.localIP()
+
+console.info(' http://localhost:3000')
+console.info(' http://' + ipArray[0] + ':3000 this node server \n http://' + ipArray[0] + ':3000/test/ test folder')
+console.info(' http://' + ipArray[0] + ':8888 your xamp or mamp server')
+console.log(`[Debug]: ${ipArray}`)
+
 keystone.start()
