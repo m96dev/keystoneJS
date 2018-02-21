@@ -1,3 +1,8 @@
+node_modules/*
+
+# 2196 files keystoneのコア部分解析のときは有効にしたり
+# !node_modules/keystone/
+
 # Logs
 logs
 *.log
@@ -22,7 +27,7 @@ build/Release
 # Dependency directory
 # Deployed apps should consider commenting this line out:
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
-node_modules
+# node_modules
 
 # Ignore .env configuration files
 .env
