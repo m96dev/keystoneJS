@@ -12,6 +12,7 @@ var keystone = require('keystone')
 keystone.init({
   'name': 'cms',
   'brand': 'cms',
+  // 'signin logo': ['../logo.png', 200, 100],
 
   'stylus': 'public',
   'static': 'public',
@@ -51,6 +52,9 @@ keystone.set('nav', {
   users: 'users'
 })
 
+// custom logo
+// keystone.set('signin logo', '../logo.png')
+
 // Start Keystone to connect to your database and initialise the web server
 
 if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
@@ -62,16 +66,16 @@ if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
   '\n\nCreate a mailgun account and add the credentials to the .env file to' +
   '\nset up your mailgun integration')
 }
-
+// mytools
 const tool = require('./myTools')
-console.log(tool.nowDateTime())
+// console.log(tool.nowDateTime())
 var yearDateTime = tool.nowDateTime()
 console.log('yearDateTime:' + yearDateTime)
 var ipArray = tool.localIP()
-
 console.info(' http://localhost:3000')
 console.info(' http://' + ipArray[0] + ':3000 this node server \n http://' + ipArray[0] + ':3000/test/ test folder')
 console.info(' http://' + ipArray[0] + ':8888 your xamp or mamp server')
 console.log(`[Debug]: ${ipArray}`)
+// mytools
 
 keystone.start()
