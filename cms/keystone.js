@@ -21,6 +21,8 @@ keystone.init({
   'view engine': 'pug',
 
   'emails': 'templates/emails',
+  'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/cms', // ADD HERE
+  'port': process.env.PORT || 3000,
 
   'auto update': true,
   'session': true,
