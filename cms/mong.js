@@ -11,8 +11,10 @@ mongoose.connect(process.env.MLAB_MONGO_URI,
 
 // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
 console.log(mongoose.connection.readyState)
+/*
 const db = mongoose.connection
 console.log('Connecting...')
 while (db.readyState === 2) {
   if (db.readyState === 1) { console.log('Connected.') } else console.log(db.readyState)
 }
+*/
