@@ -77,6 +77,7 @@ var ipArray = tool.localIP()
 console.info(' http://localhost:3000')
 console.info(' http://' + ipArray[0] + ':3000 this node server \n http://' + ipArray[0] + ':3000/test/ test folder')
 console.info(' http://' + ipArray[0] + ':8888 your xamp or mamp server')
+console.info(' http://' + ipArray[0] + ':3001 use local with gcloud mongodb')
 console.log(`[Debug]: ${ipArray}`)
 // mytools
 
