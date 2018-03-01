@@ -1,0 +1,7 @@
+{
+  'name.first': 'Admin',
+  'name.last': 'User',
+  'email': 'takayukio@gmail.com',
+  'password': 'bummypass', 
+  'isAdmin': true
+}

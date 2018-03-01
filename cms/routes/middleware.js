@@ -18,6 +18,7 @@ var _ = require('lodash')
 */
 exports.initLocals = function (req, res, next) {
   res.locals.navLinks = [
+    { label: 'm96dev', key: 'home', href: '/' },
     { label: 'ホーム', key: 'home', href: '/' },
     { label: 'ブログ', key: 'blog', href: '/blog' },
     { label: 'ギャラリー', key: 'gallery', href: '/gallery' },
