@@ -27,7 +27,11 @@ keystone.init({
   'auto update': true,
   'session': true,
   'auth': true,
-  'user model': 'User'
+  'user model': 'User',
+  // admin ui path, do not change
+  // /node_modules/keystone/admin/public is /keystone
+  'admin path': 'keystone'
+
 })
 
 // Load your project's Models
@@ -40,7 +44,11 @@ keystone.set('locals', {
   _: require('lodash'),
   env: keystone.get('env'),
   utils: keystone.utils,
-  editable: keystone.content.editable
+  editable: keystone.content.editable,
+  ga: {
+    property: process.env.GA_SITE_PROPERTY,
+    domain: process.env.GA_SITE_DOMAIN
+  }
 })
 
 // Load your project's Routes
@@ -68,6 +76,7 @@ if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
   '\n\nCreate a mailgun account and add the credentials to the .env file to' +
   '\nset up your mailgun integration')
 }
+
 // mytools
 const tool = require('./myTools')
 // console.log(tool.nowDateTime())
@@ -75,9 +84,9 @@ var yearDateTime = tool.nowDateTime()
 console.log('yearDateTime:' + yearDateTime)
 var ipArray = tool.localIP()
 console.info(' http://localhost:3000')
-console.info(' http://' + ipArray[0] + ':3000 this node server \n http://' + ipArray[0] + ':3000/test/ test folder')
+console.info(' http://' + ipArray[0] + ':3000 rylogin/exp : this node server \n http://' + ipArray[0] + ':3000/test/ test folder')
 console.info(' http://' + ipArray[0] + ':8888 your xamp or mamp server')
-console.info(' http://' + ipArray[0] + ':3001 use local with gcloud mongodb')
+console.info(' http://' + ipArray[0] + ':3001 keystoneJS : use local with gcloud mongodb')
 console.log(`[Debug]: ${ipArray}`)
 // mytools
 

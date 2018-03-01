@@ -9,7 +9,13 @@
 
 exports.create = {
   User: [
-    { 'name.first': 'Admin', 'name.last': 'User', 'email': 'takayukio@gmail.com', 'password': 'admin', 'isAdmin': true }
+    {
+      'name.first': 'Admin',
+      'name.last': 'User',
+      'email': 'takayukio@gmail.com',
+      'password': 'admin', // defalt dummy password
+      'isAdmin': true
+    }
   ]
 }
 
