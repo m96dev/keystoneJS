@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "keystone": "4.0.0-beta.8",
-    "lodash": "^4.13.1",
-    "pug": "2.0.0-rc.4",
-    "stylus": "0.54.5",
+    "async": "2.6.0",
     "dotenv": "5.0.0",
+    "keystone": "4.0.0-beta.8",
     "keystone-email": "1.0.5",
-    "async": "2.6.0"
+    "lodash": "^4.13.1",
+    "nodemon": "^1.17.1",
+    "pug": "2.0.0-rc.4",
+    "stylus": "0.54.5"
   },
   "devDependencies": {
     "eslint": "^3.10.0",
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node keystone.js",
+    "start": "nodemon keystone.js",
     "compile": "stylus -w public/styles/site.styl -o public/styles/site.css"
   }
 }
