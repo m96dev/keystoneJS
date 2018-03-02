@@ -9,6 +9,11 @@ var keystone = require('keystone')
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
+// var mongourl = process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/cms'
+var mongourl = process.env.MLAB_MONGO_URI || 'mongodb://localhost/cms'
+console.log(`mongourl : ${mongourl}`)
+// console.debug
+
 keystone.init({
   'name': 'cms',
   'brand': 'cms',
@@ -21,7 +26,7 @@ keystone.init({
   'view engine': 'pug',
 
   'emails': 'templates/emails',
-  'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/cms', // ADD HERE
+  'mongo': mongourl , // ADD HERE
   'port': process.env.PORT || 3001,
 
   'auto update': true,
