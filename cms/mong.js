@@ -2,14 +2,20 @@ require('dotenv').load()
 const mongoose = require('mongoose')
 console.log(mongoose.connection.readyState)
 
-mongoose.connect(process.env.MLAB_MONGO_URI,
+// set env url
+mongoose.connect(process.env.MONGO_URI,
   {
     username: process.env.USER,
     password: process.env.PASS
   }
 )
 
-// 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
+var message =`//
+ 0 = disconnected,
+ 1 = connected,
+ 2 = connecting,
+ 3 = disconnecting`
+console.log(message)
 console.log(mongoose.connection.readyState)
 /*
 const db = mongoose.connection

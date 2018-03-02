@@ -22,7 +22,7 @@ keystone.init({
 
   'emails': 'templates/emails',
   'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/cms', // ADD HERE
-  'port': process.env.PORT || 3000,
+  'port': process.env.PORT || 3001,
 
   'auto update': true,
   'session': true,
