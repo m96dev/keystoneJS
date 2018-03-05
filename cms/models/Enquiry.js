@@ -17,6 +17,8 @@ Enquiry.add({
   phone: { type: String },
   enquiryType: { type: Types.Select,
     options: [
+    { value: 'message', label: '製品についての質問' },
+    { value: 'message', label: 'ただのメッセージ' },
     { value: 'message', label: 'Just leaving a message' },
     { value: 'question', label: 'I\'ve got a question' },
     { value: 'other', label: 'Something else...' }
@@ -61,10 +63,10 @@ Enquiry.schema.methods.sendNotificationEmail = function (callback) {
     }).send({
       to: admins,
       from: {
-        name: 'cms',
+        name: 'cmsページより',
         email: 'contact@cms.com'
       },
-      subject: 'New Enquiry for cms',
+      subject: 'お問い合わせが cmsから届きました',
       enquiry: enquiry,
       brand: brand
     }, callback)
