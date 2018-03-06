@@ -53,6 +53,10 @@ keystone.set('locals', {
   ga: {
     property: process.env.GA_SITE_PROPERTY,
     domain: process.env.GA_SITE_DOMAIN
+  },
+  proDev: {
+    production: process.env.production,
+    develop: process.env.develop
   }
 })
 
