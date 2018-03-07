@@ -46,11 +46,12 @@ organization that develops Certbot?
 しばらく待つ、
 
 ### result
+
 成功したら証明書が作成される。pem ファイル
 
 Congratulations! Your certificate and chain have been saved at:
 
-```
+```sh
 Using the webroot path
 /usr/share/nginx/html
 
@@ -69,6 +70,6 @@ Your cert will expire on
 `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
 
 - [x] m96d.tk
-- [] cms.m96d.tk
-- [] time.m96d.tk
-- [] rylogin.m96d.tk
+- [ ] cms.m96d.tk
+- [ ] time.m96d.tk
+- [ ] rylogin.m96d.tk
