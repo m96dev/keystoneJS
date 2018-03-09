@@ -1,6 +1,7 @@
 # config for m96d
 # sudo vi /etc/sysconfig/jenkins
 
+
 ## Path:        Development/Jenkins
 ## Description: Jenkins Automation Server
 ## Type:        string
