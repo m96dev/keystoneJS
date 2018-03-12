@@ -22,7 +22,8 @@ module.exports = {
 
     var Enquiry = keystone.list('Enquiry')
 
-    var newEnquiry = new Enquiry.model({
+  //var newEnquiry = new Enquiry.model({
+    var newEnquiry = new Enquiry.Model({
       name: { first: 'Test', last: 'User' },
       email: 'contact@cms.com',
       phone: '+61 2 1234 5678',
