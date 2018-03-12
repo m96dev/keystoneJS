@@ -1,8 +1,4 @@
 {
-	"extends": [
-		"standard",
-		"keystone"
-	],
   "env": {
     "mocha": true
   },
