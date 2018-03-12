@@ -1,6 +1,7 @@
 # keystoneJS
 
 DBはローカル環境からGcloud上にアクセス可能
+jenkins CI
 
 ## create your local /cms/.env
 
