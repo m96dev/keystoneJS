@@ -26,7 +26,7 @@ keystone.init({
   'view engine': 'pug',
 
   'emails': 'templates/emails',
-  'mongo': mongourl , // ADD HERE
+  'mongo': mongourl, // ADD HERE
   'port': process.env.PORT || 3001,
 
   'auto update': true,
