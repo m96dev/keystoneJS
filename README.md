@@ -1,6 +1,9 @@
 # keystoneJS
 
-DBはローカル環境からGcloud上にアクセス可能
+--DBはローカル環境からGcloud上にアクセス可能--
+↓
+mlab.com
+
 jenkins CI
 
 ## create your local /cms/.env
