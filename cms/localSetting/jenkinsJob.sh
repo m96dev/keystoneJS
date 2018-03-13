@@ -32,8 +32,7 @@ npm run standard
 #     ├── index.pug
 #     └── post.pug
 
-# $ pug-lint a.pug
-# $ pug-lint ./**/*.pug
+#!/bin/sh -xe
 # cd ~/m96dev/keystoneJS/cms
 
 cd cms

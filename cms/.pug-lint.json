@@ -1,4 +1,5 @@
 {
+  "validateIndentation": 2 , 
   "puglint.enable": true,
   "puglint.config": {
     "requireClassLiteralsBeforeIdLiterals": true
