@@ -17,6 +17,12 @@ npm i
 node keystone (or npm start)
 ```
 
+### npm global
+
+npm -i standard --global
+sudo npm install standard --global
+sudo npm install pug-lint --global
+
 ### install lint , eslint plugin for standardjs
 
 ```sh

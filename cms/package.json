@@ -24,7 +24,8 @@
     "lint": "eslint .",
     "start": "nodemon keystone.js",
     "compile": "stylus -w public/styles/site.styl -o public/styles/site.css",
-    "standard": "standard ./**/*.js"
+    "standard": "standard ./**/*.js",
+    "pug-lint": "pug-lint ./**/*.pug"
     
   }
 }
