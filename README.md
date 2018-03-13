@@ -73,3 +73,21 @@ security:
 `sudo vi /var/log/mongodb/mongod.log`
 
 - MONGO_URIを確認 authSource
+
+### mongodb version diff
+
+みつけた現象
+ver3 .6 だとDBの権限を管理するUserID識別子がランダムになっている
+Driverが古いと対応不可とおもわれ
+
+```json
+mongdb3 .6 {
+  "_id": ObjectId("5a9665b182b46133ac3bef91"),
+  "user": "admin",
+}
+
+mongodb 3.4 {
+  "_id": "cms.mono",
+  "user": "mono",
+}
+```
