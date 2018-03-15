@@ -33,8 +33,10 @@ keystone.init({
   'session': true,
   'auth': true,
   'user model': 'User',
+
   // admin ui path, do not change
   // /node_modules/keystone/admin/public is /keystone
+  //               ↑このパスを admin フォルダーへまるごとコピーすればいける?
   'admin path': 'keystone'
 
 })

@@ -6,15 +6,18 @@ block intro
     
 block content
   .container
-    if enquirySubmitted
+    //- if enquirySubmitted
       h3 Thanks for getting in touch.
-    else
+    //- else
       .row: .col-sm-8.col-md-6
         form(method='post')
           input(type='hidden', name='action', value='contact')
           .form-group(class=validationErrors.name ? 'has-error' : null)
             label ご氏名
-            input(type='text', name='name.full', value=formData['name.full']).form-control
+            //- input(type='text', name='name.full', value=formData['name.full']).form-control
+            input(type='text' name='name.full' value=formData['name.full'] data-error="氏名は入力必須です" required placeholder="First Last").form-control
+            .help-block.with-errors
+
           .form-group(class=validationErrors.email ? 'has-error' : null)
             label メールアドレス
             input(type='email', name='email', value=formData.email).form-control
@@ -27,8 +30,186 @@ block content
               option(value='') (select one)
               each type in enquiryTypes
                 option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+
           .form-group(class=validationErrors.message ? 'has-error' : null)
             label メッセージを入力
             textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
           .form-actions
             button(type='submit').btn.btn-primary 送信
+
+    //- script(src='//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js')
+
+    if enquirySubmitted
+      h3 Thanks for getting in touch.
+    else
+      .row: .col-sm-8.col-md-6
+
+      style(type="text/css").
+        .error{
+          color:red;
+        }
+      .page-header.text-center
+        //- h1 Contact Us | お問い合わせ
+        h3 Bootstrap validator 
+        p usage http://1000hz.github.io/bootstrap-validator/
+        p サンプル http://kishiken.com/bootstrap/validator.html
+      .container
+        //- form(method='post')
+        form(method='post' data-toggle="validator" role="form")
+          input(type='hidden', name='action', value='contact')
+          //- form(data-toggle="validator" role="form")
+          .form-group.has-feedback
+            label.control-label(for="inputName")
+              span.label.label-danger 必須項目
+              | 　名前
+            input#inputName.form-control(type="text" name='name.full' value=formData['name.full'] placeholder="名前を入力" data-required-error="名前の入力は必須です" required)
+            //- input(type='text' name='name.full' value=formData['name.full'] data-error="氏名は入力必須です" required placeholder="First Last").form-control
+            span.glyphicon.form-control-feedback(aria-hidden="true")
+            .help-block.with-errors
+          //- .form-group.has-feedback
+            label.control-label(for="inputTwitter")
+              span.label.label-danger 必須項目
+              | 　Twitterアカウント名
+            .input-group
+              span.input-group-addon @
+              input#inputTwitter.form-control(type="text" pattern="^[_A-z0-9]{1,}$" maxlength="15" placeholder="1000hz" data-pattern-error="英数字以外の文字が入力されています" data-required-error="Twitterアカウントの入力は必須です" required="")
+            span.glyphicon.form-control-feedback(aria-hidden="true")
+            .help-block.with-errors Twitterアカウント名を入力してください
+          .form-group.has-feedback
+            label.control-label(for="inputEmail")
+              span.label.label-danger 必須項目
+              | 　メールアドレス
+            input#inputEmail.form-control(type="email" placeholder="Email"  name='email' value=formData.email data-error="メールアドレスが正しく入力されておりません" data-required-error="メールアドレスの入力は必須です" required="")
+            //- input(type='email', name='email', value=formData.email).form-control
+            span.glyphicon.form-control-feedback(aria-hidden="true")
+            .help-block.with-errors
+          //- .form-group
+            label.control-label(for="inputPassword")
+              span.label.label-danger 必須項目
+              | 　パスワード
+            .row
+              .form-group.has-feedback.col-sm-6
+                input#inputPassword.form-control(type="password" data-minlength="6" placeholder="パスワードを入力" data-required-error="パスワードの入力は必須です" required="")
+                .help-block 6文字以上で設定してください。
+              .form-group.has-feedback.col-sm-6
+                input#inputPasswordConfirm.form-control(type="password" data-match="#inputPassword" data-required-error="確認用パスワードの入力は必須です" data-match-error="パスワードが一致しません" placeholder="確認用パスワードを入力" required="")
+                .help-block.with-errors
+          .form-group.has-feedback
+            p 選択してください
+            .radio
+              label
+                input(type="radio" name="underwear" required)
+                | 男性
+            .radio
+              label
+                input(type="radio" name="underwear" required)
+                | 女性
+            .help-block.with-errors 選択してください
+
+          //- .form-group(class=validationErrors.enquiryType ? 'has-error' : null)
+          .form-group.has-feedback
+            p お問合わせの内容を選ぶ
+            //- label お問合わせの内容を選ぶ
+            select(name='enquiryType'  data-error="お問合わせの内容を選んでください" required).form-control
+              option(value='') (select one)
+              each type in enquiryTypes
+                option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+            .help-block.with-errors
+
+          .form-group.has-feedback
+            p 承認するにチェックを入れてください
+            .checkbox
+              label
+                input#terms(type="checkbox" data-error="問題がなければ承認するにチェックを入れてください" required)
+                | 承認する
+              .help-block.with-errors
+          .form-group.has-feedback
+            label メッセージを入力
+            textarea(name='message', placeholder='メッセージを入力' data-error="メッセージを入力してください" rows=4 required).form-control= formData.message
+            .help-block.with-errors
+            
+
+          .form-group
+            button.btn.btn-primary(type="submit") 送信
+          //- .form-actions
+          //-   button(type='submit').btn.btn-primary 送信
+      //- script(src="https://code.jquery.com/jquery-1.10.2.min.js")
+      //- script(src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+      //- script(src="validator.min.js")
+
+
+
+    <div class="page-header text-center">
+      <h1>Bootstrap Validator validator.js サンプル</h1>
+    </div>
+    <div class="container">
+      <form data-toggle="validator" role="form">
+        <div class="form-group has-feedback">
+          <label for="inputName" class="control-label">
+            <span class="label label-danger">必須項目</span>　名前
+          </label>
+          <input type="text" class="form-control" id="inputName" placeholder="名前を入力" data-required-error="名前の入力は必須です" required>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback">
+          <label for="inputTwitter" class="control-label">
+            <span class="label label-danger">必須項目</span>　Twitterアカウント名
+          </label>
+          <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" pattern="^[_A-z0-9]{1,}$" maxlength="15" class="form-control" id="inputTwitter" placeholder="1000hz" data-pattern-error="英数字以外の文字が入力されています" data-required-error="Twitterアカウントの入力は必須です" required>
+          </div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors">Twitterアカウント名を入力してください</div>
+        </div>
+        <div class="form-group has-feedback">
+          <label for="inputEmail" class="control-label">
+            <span class="label label-danger">必須項目</span>　メールアドレス
+          </label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="メールアドレスが正しく入力されておりません" data-required-error="メールアドレスの入力は必須です" required>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="control-label">
+            <span class="label label-danger">必須項目</span>　パスワード
+          </label>
+          <div class="row">
+            <div class="form-group has-feedback col-sm-6">
+              <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="パスワードを入力" data-required-error="パスワードの入力は必須です" required>
+              <div class="help-block">6文字以上で設定してください。</div>
+            </div>
+            <div class="form-group has-feedback col-sm-6">
+              <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-required-error="確認用パスワードの入力は必須です" data-match-error="パスワードが一致しません" placeholder="確認用パスワードを入力" required>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <p>選択してください</p>
+          <div class="radio">
+            <label>
+              <input type="radio" name="underwear" required>ボクサー 
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="underwear" required>ブリーフ 
+            </label>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <p>承認するにチェックを入れてください</p>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="terms" data-error="問題がなければ承認するにチェックを入れてください" required>承認する 
+            </label>
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">送信</button>
+        </div>
+      </form>
+    </div>
