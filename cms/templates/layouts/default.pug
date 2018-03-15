@@ -21,10 +21,11 @@ html
 
     //- link(href="//bootswatch.com/4/cerulean/bootstrap.min.css", rel="stylesheet")
     //- link(href="http://demo.keystonejs.com/styles/themes/Cyborg.min.css", rel="stylesheet")
+    link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
 
     //- This file provides the default styling for the KeystoneJS Content Editor
     if user && user.canAccessKeystone
-      link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+      link(href="/admin/styles/content/editor.min.css", rel="stylesheet")
 
     //- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     //- Safely remove this block if you are not targeting IE8
@@ -62,12 +63,24 @@ html
               each link in navLinks
                 li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
             ul.nav.navbar-nav.navbar-right
+              if themes && themes.length
+                li.dropdown
+                  a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+                    | Themes 
+                    span.caret
+                  ul.dropdown-menu
+                    each theme in themes
+                      li(class=currentTheme === theme ? 'active' : '')
+                        a(href='?theme=' + theme)= theme
+              //- each theme in themes // - リンクがバーに並んでくれる
+                li(class=currentTheme === theme ? 'active' : '')
+                  a(href='?theme=' + theme)= theme
               if user
                 if user.canAccessKeystone
-                  li: a(href='/keystone') /keystone
-                li: a(href='/keystone/signout') /signout
+                  li: a(href='/admin') /admin
+                li: a(href='/admin/signout') /signout
               else
-                li: a(href='/keystone/signin') /signin
+                li: a(href='/admin/signin') /signin
 
     //- BODY
     #body
@@ -108,7 +121,7 @@ html
     //- The KeystoneJS Content Editor provides support for ks-editable data attributes,
     //- which generate links to edit content for users who can access Keystone
     if user && user.canAccessKeystone
-      script(src='/keystone/js/content/editor.js')
+      script(src='/admin/js/content/editor.js')
 
     //- Add scripts that are globally required by your site here.
     if ga.property && ga.domain
