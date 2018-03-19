@@ -38,6 +38,7 @@ keystone.init({
   // /node_modules/keystone/admin/public is /keystone
   //               ↑このパスを admin フォルダーへまるごとコピーすればいける?
   'admin path': 'keystone'
+  // 'admin path': 'admin'
 
 })
 

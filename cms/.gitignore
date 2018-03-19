@@ -3,7 +3,8 @@ package-lock.json
 package-lock.json
 
 # 2196 files keystoneのコア部分解析のときは有効にしたり
-# !node_modules/keystone/
+# !node_modules/keystone
+node_modules/keystone/node_modules
 
 # Logs
 logs
