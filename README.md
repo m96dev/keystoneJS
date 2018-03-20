@@ -47,9 +47,11 @@ db.createUser({user: "admin",pwd: "<YourAdminPass>",roles: [{ role: "readWrite",
 ```
 
 ## 2.edit .env file (Github非共有ファイル)
+.env ローカルでドットエンブファイルにIPASを記述
 
 接続URL に authSouce で データベース admin を選択する
 `MONGO_URI=mongodb://admin:youradminpass@35.194.108.26:27017/cms?authSource=admin`
+Gcloud内ローカル再起動でエラーが頻発 > mlab.com に切り替え
 
 ### 3.open config file
 
