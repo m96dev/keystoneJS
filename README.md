@@ -4,7 +4,9 @@
 ↓
 mlab.com
 
-jenkins CI
+## jenkins CI
+github pull request builder
+の設定が鬼門
 
 ## create your local /cms/.env
 
